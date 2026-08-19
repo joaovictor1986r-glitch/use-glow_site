@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Glow | Que nada te impeça de espalhar Glow por aí</title>
+    <meta name="description" content="Moda feminina em Carapicuíba - SP. Vestidos, conjuntos, jaquetas e peças exclusivas. Loja física e atendimento personalizado via WhatsApp.">
+
+    <!-- Favicon: monograma "UG" em SVG (sem depender de arquivo externo) -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Open Graph: como o link aparece ao compartilhar no WhatsApp/Instagram/Facebook.
+         TROCAR og:url pelo domínio real quando o site for publicado, e og:image
+         por uma arte 1200x630 dedicada quando tiverem uma pronta. -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Use Glow | Moda Feminina em Carapicuíba">
+    <meta property="og:description" content="Vestidos, conjuntos, jaquetas e peças exclusivas. Loja física e atendimento personalizado via WhatsApp.">
+    <meta property="og:image" content="images/hero-rosa.jpg">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Italiana&family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO (faixa de avisos + navegação), fixo e transparente sobre o hero -->
+    <header class="site-header" id="site-header">
+
+        <!-- 1. FAIXA SUPERIOR -->
+        <div class="faixa-avisos">
+            <div class="container">
+                <span>Loja física em Carapicuíba</span>
+                <span class="separador">•</span>
+                <span>Atendimento via WhatsApp</span>
+                <span class="separador">•</span>
+                <span>Peças exclusivas</span>
+            </div>
+        </div>
+
+        <!-- 2. NAVEGAÇÃO -->
+        <div class="topo">
+            <div class="container">
+                <a href="#inicio" class="logo"><span class="logo-nome">Use <span class="glow">Glow</span></span><span class="tagline">Moda Feminina</span></a>
+
+                <nav class="menu-principal" id="menu-principal">
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#catalogo">Catálogo</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#localizacao">Localização</a></li>
+                        <li><a href="#rodape">Contato</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-direita">
+                    <a href="https://wa.me/5511957109272" target="_blank" class="btn-whatsapp-header">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M17.6 6.3A8 8 0 0 0 4.2 16l-1 4 4.1-1a8 8 0 0 0 3.7.9h0a8 8 0 0 0 6.6-12.6zM12 18.4a6.5 6.5 0 0 1-3.3-.9l-.2-.1-2.4.6.6-2.3-.2-.2A6.5 6.5 0 1 1 18.5 12 6.5 6.5 0 0 1 12 18.4zm3.6-4.9c-.2-.1-1.2-.6-1.3-.7s-.3-.1-.4.1-.5.7-.6.8-.2.1-.4 0a5.3 5.3 0 0 1-1.6-1 6 6 0 0 1-1.1-1.4c-.1-.2 0-.3.1-.4l.3-.3.1-.3v-.3c0-.1-.4-1.1-.6-1.5s-.3-.3-.4-.3h-.4a.8.8 0 0 0-.5.3 2.4 2.4 0 0 0-.7 1.8 4.2 4.2 0 0 0 .9 2.2 9.6 9.6 0 0 0 3.7 3.3c.5.2.9.3 1.2.4a2.9 2.9 0 0 0 1.3.1 2.2 2.2 0 0 0 1.4-1 1.8 1.8 0 0 0 .1-1c-.1-.1-.2-.1-.4-.2z" />
+                        </svg>
+                        <span>WhatsApp</span>
+                    </a>
+                    <button class="btn-hamburguer" id="btn-hamburguer" aria-label="Abrir menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO (CARROSSEL) — layout único e delicado: foto + véu em degradê +
+         painel de texto, sem clip-path, alternando o alinhamento a cada slide. -->
+    <section class="hero-section" id="inicio">
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+
+                <!-- Slide 1: Look Preto — paleta preto + dourado, ecoando as bolsas
+                     e acessórios da foto. -->
+                <div class="swiper-slide slide-item-v2 align-left tema-preto-dourado">
+                    <img class="slide-bg-img" src="images/hero-black.png" alt="Coleção Use Glow - Look Preto, bolsas e acessórios pretos e dourados">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <span class="slide-eyebrow">Atitude noturna</span>
+                        <h1 class="slide-title">Poder</h1>
+                        <span class="slide-divider"></span>
+                        <p>Ousadia em cada peça. Poder não pede licença.</p>
+                        <a href="#catalogo" class="btn-cta">Quero Meu Look</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Look Branco — paleta champagne + pérola, puxando os
+                     tons claros e metais suaves da foto. -->
+                <div class="swiper-slide slide-item-v2 align-right tema-champagne-perola">
+                    <img class="slide-bg-img" src="images/hero-white.jpeg" alt="Coleção Use Glow - Look Branco, bolsas e acessórios em champagne e pérola">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <span class="slide-eyebrow">Leveza em cena</span>
+                        <h1 class="slide-title">Pureza</h1>
+                        <span class="slide-divider"></span>
+                        <p>Delicadeza que não precisa gritar pra ser notada.</p>
+                        <a href="#catalogo" class="btn-cta">Quero Brilhar</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Look Rosa — paleta rosa + dourado, a base da marca. -->
+                <div class="swiper-slide slide-item-v2 align-left tema-rosa-dourado">
+                    <img class="slide-bg-img" src="images/hero-rosa.jpg" alt="Coleção Use Glow - Looks em tons de rosa, conjuntos e vestidos">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <span class="slide-eyebrow">Seu estilo, sua essência</span>
+                        <h1 class="slide-title">Brilhe <span class="accent">com Glow</span></h1>
+                        <span class="slide-divider"></span>
+                        <p>Peças que realçam sua beleza natural e te acompanham com elegância em qualquer ocasião.</p>
+                        <a href="#catalogo" class="btn-cta">Descubra a Coleção</a>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Look Editorial — paleta bege + dourado, os tons
+                     neutros e quentes do ambiente da foto. -->
+                <div class="swiper-slide slide-item-v2 align-center tema-bege-dourado">
+                    <img class="slide-bg-img" src="images/hero-editorial.jpg" alt="Coleção Use Glow - Editorial com três looks: vestido branco, vestido preto e conjunto off-white">
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <span class="slide-eyebrow">Lookbook Exclusivo</span>
+                        <h1 class="slide-title">Nova Coleção</h1>
+                        <span class="slide-divider"></span>
+                        <p>Do essencial ao statement — um guarda-roupa pensado pra cada versão sua.</p>
+                        <a href="#catalogo" class="btn-cta">Ver Lookbook Completo</a>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Composição com sobreposição (exclusiva deste slide) —
+                     wordmark "USE GLOW" gigante atrás/na frente da modelo recortada,
+                     no estilo do editorial de referência, com identidade própria do
+                     site (tipografia Italiana + paleta terracota/dourado/off-white). -->
+                <div class="swiper-slide slide-overlap tema-terracota">
+                    <img class="overlap-bg-img" src="images/hero-overlap-bg.jpg" alt="Parede em tons terrosos com nichos e vasos de cerâmica, ambientação Use Glow">
+                    <div class="overlap-top-eyebrow">Nova Coleção</div>
+                    <div class="overlap-wordmark" aria-hidden="true">
+                        <span class="word-solid">Use</span>
+                        <span class="word-outline">Glow</span>
+                    </div>
+                    <img class="overlap-modelo" src="images/modelo-overlap.png" alt="Modelo Use Glow usando colete alfaiataria off-white e shorts, coleção nova">
+                    <div class="overlap-content">
+                        <span class="overlap-tagline"> </span>
+                        <span class="slide-divider"></span>
+                        <p>Alfaiataria off-white pensada pra quem gosta de entrar numa sala e ser lembrada.</p>
+                        <a href="#catalogo" class="btn-cta">Ver Essa Peça</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+
+    <!-- 4. DIFERENCIAIS -->
+    <section class="diferenciais">
+        <div class="container">
+            <div class="item-diferencial reveal">
+                <div class="icone"><svg viewBox="0 0 24 24" stroke-width="1.8">
+                        <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" />
+                    </svg></div>
+                <h3>Loja Física</h3>
+            </div>
+            <div class="item-diferencial reveal">
+                <div class="icone"><svg viewBox="0 0 24 24" stroke-width="1.8">
+                        <path d="M12 21c-4-3.5-8-6.9-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.1-4 7.5-8 11" />
+                    </svg></div>
+                <h3>Atendimento Personalizado</h3>
+            </div>
+            <div class="item-diferencial reveal">
+                <div class="icone"><svg viewBox="0 0 24 24" stroke-width="1.8">
+                        <path d="M12 2l2.4 6.9L21 11l-6.6 2.1L12 20l-2.4-6.9L3 11l6.6-2.1z" />
+                    </svg></div>
+                <h3>Peças Exclusivas</h3>
+            </div>
+            <div class="item-diferencial reveal">
+                <div class="icone"><svg viewBox="0 0 24 24" stroke-width="1.8">
+                        <path d="M4 4v6h6M20 20v-6h-6M5 9a7 7 0 0 1 12-4l3 3M19 15a7 7 0 0 1-12 4l-3-3" />
+                    </svg></div>
+                <h3>Troca Fácil</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CATÁLOGO COMPLETO DE PRODUTOS
+         - Cada .product-card tem data-categoria (usado pelos filtros) e
+           data-nome/data-img/data-whats (usados pelo modal de detalhes).
+         - Como só temos 4 fotos de peça por enquanto, o mesmo bloco de 4 se
+           repete 5x pra preencher 20 espaços, como combinado. É só trocar a
+           imagem, o nome e o link de cada card por uma peça real depois —
+           a estrutura (categoria, badge, modal) já funciona pronta.
+         - .product-badge é opcional: use "novidade" ou "ultimas" pra destacar
+           peças específicas, ou remova a tag do card que não precisar. -->
+    <section id="catalogo" class="catalog-section">
+        <div class="container">
+
+            <div class="catalog-header catalog-header-editorial">
+                <div class="catalog-kicker">
+                    <span class="catalog-kicker-line"></span>
+                    <span>Curadoria Use Glow · 2026</span>
+                </div>
+
+                <div class="catalog-heading-wrap">
+                    <div class="catalog-side-note"><span>Peças</span><span>Que Ficam</span><span>Na Memória</span></div>
+                    <div>
+                        <h2 class="titulo-secao">A <span class="destaque">Curadoria</span><br>Glow</h2>
+                        <p class="subtitulo-secao">Uma seleção pensada como editorial: texturas, silhuetas e detalhes para vestir a sua presença — não apenas preencher o guarda-roupa.</p>
+                    </div>
+                    <div class="catalog-index"><span>01</span><span>/</span><span>Glow</span></div>
+                </div>
+
+                <div class="catalog-filter-row">
+                    <span class="filter-label">Explorar por</span>
+                    <div class="catalog-tabs">
+                        <button class="tab-btn active" data-filtro="todos">Tudo</button>
+                        <button class="tab-btn" data-filtro="vestidos">Vestidos</button>
+                        <button class="tab-btn" data-filtro="blusas-tops">Blusas &amp; Tops</button>
+                        <button class="tab-btn" data-filtro="casacos-jaquetas">Casacos &amp; Jaquetas</button>
+                        <button class="tab-btn" data-filtro="calcas-saias">Calças &amp; Saias</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+
+                <div class="product-card reveal product-card-new" data-categoria="vestidos">
+                    <div class="product-image">
+                        <span class="product-badge badge-editorial">Novidade</span>
+                        <img src="images/produto-05-vestido-branco-torcido.jpg" alt="Vestido branco curto com detalhe torcido e recorte frontal, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Vestido Branco Torcido"
+                            data-img="images/produto-05-vestido-branco-torcido.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Vestido%20Branco%20Torcido">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-editorial-label">CURADORIA GLOW</span>
+                        <h3>Vestido Branco Torcido</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal product-card-new" data-categoria="vestidos">
+                    <div class="product-image">
+                        <span class="product-badge badge-editorial">Edição Glow</span>
+                        <img src="images/produto-06-vestido-midi-creme.jpg" alt="Vestido midi creme com amarração na cintura e fenda frontal, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Vestido Midi Creme"
+                            data-img="images/produto-06-vestido-midi-creme.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Vestido%20Midi%20Creme">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-editorial-label">CURADORIA GLOW</span>
+                        <h3>Vestido Midi Creme</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal product-card-new" data-categoria="vestidos">
+                    <div class="product-image">
+                        <img src="images/produto-07-vestido-branco-fluido.jpg" alt="Vestido branco longo de caimento fluido e textura plissada, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Vestido Branco Fluido"
+                            data-img="images/produto-07-vestido-branco-fluido.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Vestido%20Branco%20Fluido">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-editorial-label">CURADORIA GLOW</span>
+                        <h3>Vestido Branco Fluido</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal product-card-new" data-categoria="vestidos">
+                    <div class="product-image">
+                        <span class="product-badge badge-editorial">Últimas Peças</span>
+                        <img src="images/produto-08-vestido-preto-elegance.jpg" alt="Vestido preto longo com modelagem elegante e detalhe drapeado, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Vestido Preto Elegance"
+                            data-img="images/produto-08-vestido-preto-elegance.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Vestido%20Preto%20Elegance">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-editorial-label">CURADORIA GLOW</span>
+                        <h3>Vestido Preto Elegance</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+
+                <!-- Peça 1 · repetida em 5 conjuntos até completar 20 cards -->
+                <div class="product-card reveal" data-categoria="vestidos">
+                    <div class="product-image">
+                        <span class="product-badge badge-novidade">Novidade</span>
+                        <img src="images/peca-01-vestido-bege.jpg" alt="Vestido bege texturizado com gola alta e barra dupla, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Vestido Bege Texturizado"
+                            data-img="images/peca-01-vestido-bege.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Vestido%20Bege%20Texturizado">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Vestido Bege Texturizado</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <img src="images/peca-02-vestido-verde.jpg" alt="Conjunto alfaiataria verde militar com blusa de renda, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Conjunto Alfaiataria Verde Militar"
+                            data-img="images/peca-02-vestido-verde.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Conjunto%20Verde%20Militar">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Conjunto Alfaiataria Verde Militar</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <span class="product-badge badge-ultimas">Últimas Peças</span>
+                        <img src="images/peca-03-jaqueta-couro.jpg" alt="Jaqueta de couro preta com body estampado, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Jaqueta de Couro + Body"
+                            data-img="images/peca-03-jaqueta-couro.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20da%20Jaqueta%20de%20Couro">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Jaqueta de Couro + Body</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal" data-categoria="calcas-saias">
+                    <div class="product-image">
+                        <img src="images/peca-04-cropped-saia.jpg" alt="Cropped branco com saia preta e amarração, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Cropped Branco + Saia Amarração"
+                            data-img="images/peca-04-cropped-saia.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Cropped%20com%20Saia">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cropped Branco + Saia Amarração</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <!-- Peça 2 (conjunto repetido) -->
+                <div class="product-card reveal" data-categoria="vestidos">
+                    <div class="product-image">
+                        <img src="images/peca-01-vestido-bege.jpg" alt="Vestido bege texturizado com gola alta e barra dupla, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Vestido Bege Texturizado"
+                            data-img="images/peca-01-vestido-bege.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Vestido%20Bege%20Texturizado">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Vestido Bege Texturizado</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <span class="product-badge badge-novidade">Novidade</span>
+                        <img src="images/peca-02-vestido-verde.jpg" alt="Conjunto alfaiataria verde militar com blusa de renda, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Conjunto Alfaiataria Verde Militar"
+                            data-img="images/peca-02-vestido-verde.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Conjunto%20Verde%20Militar">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Conjunto Alfaiataria Verde Militar</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <img src="images/peca-03-jaqueta-couro.jpg" alt="Jaqueta de couro preta com body estampado, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Jaqueta de Couro + Body"
+                            data-img="images/peca-03-jaqueta-couro.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20da%20Jaqueta%20de%20Couro">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Jaqueta de Couro + Body</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal" data-categoria="calcas-saias">
+                    <div class="product-image">
+                        <span class="product-badge badge-ultimas">Últimas Peças</span>
+                        <img src="images/peca-04-cropped-saia.jpg" alt="Cropped branco com saia preta e amarração, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Cropped Branco + Saia Amarração"
+                            data-img="images/peca-04-cropped-saia.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Cropped%20com%20Saia">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cropped Branco + Saia Amarração</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <!-- Peça 3 (conjunto repetido) — a partir daqui já entra na
+                     paginação: fica oculto até clicar em "Ver mais peças". -->
+                <div class="product-card reveal oculto-paginacao" data-categoria="vestidos">
+                    <div class="product-image">
+                        <img src="images/peca-01-vestido-bege.jpg" alt="Vestido bege texturizado com gola alta e barra dupla, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Vestido Bege Texturizado"
+                            data-img="images/peca-01-vestido-bege.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Vestido%20Bege%20Texturizado">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Vestido Bege Texturizado</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal oculto-paginacao" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <img src="images/peca-02-vestido-verde.jpg" alt="Conjunto alfaiataria verde militar com blusa de renda, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Conjunto Alfaiataria Verde Militar"
+                            data-img="images/peca-02-vestido-verde.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Conjunto%20Verde%20Militar">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Conjunto Alfaiataria Verde Militar</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal oculto-paginacao" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <span class="product-badge badge-novidade">Novidade</span>
+                        <img src="images/peca-03-jaqueta-couro.jpg" alt="Jaqueta de couro preta com body estampado, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Jaqueta de Couro + Body"
+                            data-img="images/peca-03-jaqueta-couro.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20da%20Jaqueta%20de%20Couro">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Jaqueta de Couro + Body</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal oculto-paginacao" data-categoria="calcas-saias">
+                    <div class="product-image">
+                        <img src="images/peca-04-cropped-saia.jpg" alt="Cropped branco com saia preta e amarração, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Cropped Branco + Saia Amarração"
+                            data-img="images/peca-04-cropped-saia.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Cropped%20com%20Saia">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cropped Branco + Saia Amarração</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <!-- Peça 4 (conjunto repetido) -->
+                <div class="product-card reveal oculto-paginacao" data-categoria="vestidos">
+                    <div class="product-image">
+                        <span class="product-badge badge-ultimas">Últimas Peças</span>
+                        <img src="images/peca-01-vestido-bege.jpg" alt="Vestido bege texturizado com gola alta e barra dupla, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Vestido Bege Texturizado"
+                            data-img="images/peca-01-vestido-bege.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Vestido%20Bege%20Texturizado">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Vestido Bege Texturizado</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal oculto-paginacao" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <img src="images/peca-02-vestido-verde.jpg" alt="Conjunto alfaiataria verde militar com blusa de renda, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Conjunto Alfaiataria Verde Militar"
+                            data-img="images/peca-02-vestido-verde.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Conjunto%20Verde%20Militar">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Conjunto Alfaiataria Verde Militar</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal oculto-paginacao" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <img src="images/peca-03-jaqueta-couro.jpg" alt="Jaqueta de couro preta com body estampado, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Jaqueta de Couro + Body"
+                            data-img="images/peca-03-jaqueta-couro.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20da%20Jaqueta%20de%20Couro">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Jaqueta de Couro + Body</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal oculto-paginacao" data-categoria="calcas-saias">
+                    <div class="product-image">
+                        <span class="product-badge badge-novidade">Novidade</span>
+                        <img src="images/peca-04-cropped-saia.jpg" alt="Cropped branco com saia preta e amarração, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Cropped Branco + Saia Amarração"
+                            data-img="images/peca-04-cropped-saia.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Cropped%20com%20Saia">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cropped Branco + Saia Amarração</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <!-- Peça 5 (conjunto repetido) -->
+                <div class="product-card reveal oculto-paginacao" data-categoria="vestidos">
+                    <div class="product-image">
+                        <img src="images/peca-01-vestido-bege.jpg" alt="Vestido bege texturizado com gola alta e barra dupla, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Vestido Bege Texturizado"
+                            data-img="images/peca-01-vestido-bege.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Vestido%20Bege%20Texturizado">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Vestido Bege Texturizado</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal oculto-paginacao" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <img src="images/peca-02-vestido-verde.jpg" alt="Conjunto alfaiataria verde militar com blusa de renda, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Conjunto Alfaiataria Verde Militar"
+                            data-img="images/peca-02-vestido-verde.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Conjunto%20Verde%20Militar">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Conjunto Alfaiataria Verde Militar</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal oculto-paginacao" data-categoria="casacos-jaquetas">
+                    <div class="product-image">
+                        <img src="images/peca-03-jaqueta-couro.jpg" alt="Jaqueta de couro preta com body estampado, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Jaqueta de Couro + Body"
+                            data-img="images/peca-03-jaqueta-couro.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20da%20Jaqueta%20de%20Couro">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Jaqueta de Couro + Body</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+                <div class="product-card reveal oculto-paginacao" data-categoria="calcas-saias">
+                    <div class="product-image">
+                        <img src="images/peca-04-cropped-saia.jpg" alt="Cropped branco com saia preta e amarração, Use Glow" loading="lazy">
+                        <button type="button" class="quick-view-btn" data-nome="Cropped Branco + Saia Amarração"
+                            data-img="images/peca-04-cropped-saia.jpg"
+                            data-whats="https://wa.me/5511957109272?text=Olá!%20Gostei%20do%20Cropped%20com%20Saia">Ver Detalhes</button>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cropped Branco + Saia Amarração</h3>
+                        <p class="product-price">Consulte o valor</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="catalog-ver-mais">
+                <button type="button" id="btn-ver-mais" class="btn-cta">Ver Mais Peças</button>
+            </div>
+
+            <div class="destaques-cta">
+                <p>Quer saber a disponibilidade de tamanhos e cores?</p>
+                <a href="https://wa.me/5511957109272" target="_blank" class="btn-cta">Atendimento ao Vivo via
+                    WhatsApp</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SOBRE -->
+    <section class="sobre-loja" id="sobre">
+        <div class="container">
+            <div class="sobre-foto reveal">
+                <img src="images/vitrine-fachada.jpg" alt="Vitrine da loja Use Glow com manequins em looks rosa">
+            </div>
+            <div class="sobre-texto reveal">
+                <span class="eyebrow">Nossa história</span>
+                <h2>6 anos vestindo Carapicuíba com atitude</h2>
+                <p>A Use Glow não é loja nova testando o mercado — são anos escolhendo peça por peça pensando em quem
+                    gosta de se vestir com personalidade, aqui no nosso bairro.</p>
+                <p>Vestidos estampados, jaquetas de couro, moda statement — cada visita é pra sair se sentindo
+                    diferente.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6.1 NÚMEROS — contadores animados. TROQUE pelos números reais da
+         loja quando tiver os dados; o efeito de contagem é automático,
+         basta mudar o valor de data-alvo em cada .numero-valor. -->
+    <section class="numeros">
+        <div class="container numeros-grid">
+            <div class="numero-item reveal">
+                <span class="numero-valor" data-alvo="6">0</span><span class="numero-sufixo">+</span>
+                <p>Anos em Carapicuíba</p>
+            </div>
+            <div class="numero-item reveal">
+                <span class="numero-valor" data-alvo="1200">0</span><span class="numero-sufixo">+</span>
+                <p>Clientes atendidas</p>
+            </div>
+            <div class="numero-item reveal">
+                <span class="numero-valor" data-alvo="30">0</span><span class="numero-sufixo">+</span>
+                <p>Peças novas por mês</p>
+            </div>
+            <div class="numero-item reveal">
+                <span class="numero-valor" data-alvo="100">0</span><span class="numero-sufixo">%</span>
+                <p>Atendimento personalizado</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6.2 DEPOIMENTOS — textos de exemplo. TROQUE pelos depoimentos reais
+         de clientes assim que tiverem (prints do WhatsApp, Google, etc.
+         viram texto aqui). -->
+    <section class="depoimentos" id="depoimentos">
+        <div class="container">
+            <h2 class="titulo-secao">O que dizem <span class="destaque">nossas clientes</span></h2>
+            <span class="enfeite-divisor"></span>
+            <p class="subtitulo-secao">Depoimentos de exemplo — substitua pelos relatos reais das suas clientes.</p>
+
+            <div class="depoimentos-grid">
+                <div class="depoimento-card reveal">
+                    <div class="depoimento-estrelas">★★★★★</div>
+                    <p>"Atendimento maravilhoso, a Ana me ajudou a montar um look completo pro meu aniversário. Saí de
+                        lá me sentindo outra pessoa."</p>
+                    <span class="depoimento-nome">— Camila R.</span>
+                </div>
+                <div class="depoimento-card reveal">
+                    <div class="depoimento-estrelas">★★★★★</div>
+                    <p>"Loja linda, peças exclusivas de verdade — nunca vi ninguém com a mesma roupa que comprei lá.
+                        Já virei cliente fixa."</p>
+                    <span class="depoimento-nome">— Fernanda S.</span>
+                </div>
+                <div class="depoimento-card reveal">
+                    <div class="depoimento-estrelas">★★★★★</div>
+                    <p>"Comprei pelo WhatsApp mesmo, sem sair de casa, e chegou tudo certinho. Recomendo demais o
+                        atendimento personalizado."</p>
+                    <span class="depoimento-nome">— Juliana M.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6.3 INSTAGRAM — grade "siga a gente". TROQUE o href do título e dos
+         quadrados pelo @ real da loja. Isso aqui é uma grade estática com
+         fotos existentes; pra puxar as publicações do Instagram automaticamente
+         é preciso um serviço à parte (ex.: SnapWidget, Elfsight, ou a API
+         oficial da Meta), porque o Instagram não permite embed direto sem
+         token de acesso. Se quiserem isso, aviso o que precisamos configurar. -->
+    <section class="instagram-secao">
+        <div class="container">
+            <h2 class="titulo-secao">Siga <span class="destaque">@useglow</span> no Instagram</h2>
+            <span class="enfeite-divisor"></span>
+            <p class="subtitulo-secao">Novidades, bastidores e looks completos, todo dia por lá.</p>
+
+            <div class="instagram-grid">
+                <a href="#" target="_blank" class="instagram-item reveal"><img src="images/hero-rosa.jpg" alt="Publicação Instagram Use Glow" loading="lazy"></a>
+                <a href="#" target="_blank" class="instagram-item reveal"><img src="images/hero-editorial.jpg" alt="Publicação Instagram Use Glow" loading="lazy"></a>
+                <a href="#" target="_blank" class="instagram-item reveal"><img src="images/peca-01-vestido-bege.jpg" alt="Publicação Instagram Use Glow" loading="lazy"></a>
+                <a href="#" target="_blank" class="instagram-item reveal"><img src="images/peca-02-vestido-verde.jpg" alt="Publicação Instagram Use Glow" loading="lazy"></a>
+                <a href="#" target="_blank" class="instagram-item reveal"><img src="images/peca-03-jaqueta-couro.jpg" alt="Publicação Instagram Use Glow" loading="lazy"></a>
+                <a href="#" target="_blank" class="instagram-item reveal"><img src="images/peca-04-cropped-saia.jpg" alt="Publicação Instagram Use Glow" loading="lazy"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. LOCALIZAÇÃO — mapa real do Google embutido via URL de busca, sem
+         precisar de chave de API (funciona porque usa o endereço como texto
+         de busca). Se um dia quiserem o pino exato, é só trocar por um link
+         "Compartilhar > Incorporar mapa" direto do Google Maps. -->
+    <section class="localizacao" id="localizacao">
+        <div class="container">
+            <div class="localizacao-info reveal">
+                <h2 class="titulo-secao titulo-esquerda">Onde <span class="destaque">nos encontrar</span></h2>
+                <div class="endereco">
+                    <svg viewBox="0 0 24 24" stroke-width="1.8">
+                        <path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z" />
+                        <circle cx="12" cy="10" r="2.5" />
+                    </svg>
+                    <span>Rua Monte Azul Paulista, 191 — Jardim Ana Estela, Carapicuíba - SP</span>
+                </div>
+                <a href="https://wa.me/5511957109272" target="_blank" class="btn-cta">Fale no WhatsApp</a>
+            </div>
+            <div class="mapa-embed reveal">
+                <iframe
+                    src="https://www.google.com/maps?q=Rua+Monte+Azul+Paulista,+191,+Jardim+Ana+Estela,+Carapicu%C3%ADba+-+SP&output=embed"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Mapa - Use Glow, Carapicuíba"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7.1 NEWSLETTER / CAPTAÇÃO — como o site não tem servidor próprio,
+         "newsletter" aqui funciona por WhatsApp: a pessoa preenche o nome
+         e o JS monta uma mensagem pronta e abre o WhatsApp da loja com ela
+         (veja captarLead() em js/app.js). Se no futuro quiserem e-mail de
+         verdade (Mailchimp, etc.), esse formulário precisa de outro serviço —
+         aviso o que for preciso quando chegarmos lá. -->
+    <section class="newsletter">
+        <div class="container newsletter-caixa">
+            <div class="newsletter-texto">
+                <h2 class="titulo-secao titulo-esquerda">Receba as <span class="destaque">novidades</span> em primeira
+                    mão</h2>
+                <p class="subtitulo-secao" style="margin: 0;">Deixe seu nome e a gente te chama no WhatsApp quando
+                    chegar peça nova.</p>
+            </div>
+            <form class="newsletter-form" id="form-newsletter">
+                <input type="text" id="newsletter-nome" placeholder="Seu nome" required>
+                <button type="submit" class="btn-cta">Quero Novidades</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 8. RODAPÉ -->
+    <footer class="rodape" id="rodape">
+        <div class="container">
+            <div class="rodape-topo">
+                <div class="rodape-marca">
+                    <p class="logo"><span class="logo-nome">Use <span class="glow">Glow</span></span><span class="tagline">Moda Feminina</span></p>
+                    <p>Que nada te impeça de espalhar Glow por aí ✨</p>
+                    <div class="redes-sociais">
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .3 2.4.5a4.9 4.9 0 0 1 1.8 1.2 4.9 4.9 0 0 1 1.2 1.8c.2.5.4 1.3.5 2.4.1 1.4.1 1.8.1 5s0 3.6-.1 4.9c-.1 1.2-.3 2-.5 2.4a4.9 4.9 0 0 1-1.2 1.8 4.9 4.9 0 0 1-1.8 1.2c-.5.2-1.3.4-2.4.5-1.4.1-1.8.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.3-2.4-.5a4.9 4.9 0 0 1-1.8-1.2 4.9 4.9 0 0 1-1.2-1.8c-.2-.5-.4-1.3-.5-2.4-.1-1.4-.1-1.8-.1-4.9s0-3.6.1-4.9c.1-1.2.3-2 .5-2.4A4.9 4.9 0 0 1 4.9 4a4.9 4.9 0 0 1 1.8-1.2c.5-.2 1.3-.4 2.4-.5 1.3-.1 1.7-.1 4.9-.1zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/5511957109272" target="_blank" aria-label="WhatsApp">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M17.6 6.3A8 8 0 0 0 4.2 16l-1 4 4.1-1a8 8 0 0 0 3.7.9h0a8 8 0 0 0 6.6-12.6zM12 18.4a6.5 6.5 0 0 1-3.3-.9l-.2-.1-2.4.6.6-2.3-.2-.2A6.5 6.5 0 1 1 18.5 12 6.5 6.5 0 0 1 12 18.4z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="rodape-coluna">
+                    <h4>Contato</h4>
+                    <p>Rua Monte Azul Paulista, 191</p>
+                    <p>Jardim Ana Estela, Carapicuíba - SP</p>
+                    <p>WhatsApp: (11) 95710-9272</p>
+                </div>
+                <div class="rodape-coluna">
+                    <h4>Horário</h4>
+                    <p>Terça a Sábado: 11h às 19h</p>
+                    <p>Domingo e Segunda: Fechado</p>
+                </div>
+            </div>
+            <hr class="rodape-linha">
+            <div class="rodape-baixo">Use Glow Store — Jardim Ana Estela, Carapicuíba</div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO FLUTUANTE DE WHATSAPP — fixo no canto da tela, sempre visível.
+         TROQUE o número se mudar o WhatsApp da loja (é o mesmo usado no resto
+         do site). -->
+    <a href="https://wa.me/5511957109272" target="_blank" class="whatsapp-flutuante" aria-label="Falar no WhatsApp">
+        <span class="whatsapp-flutuante-anel"></span>
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.6 6.3A8 8 0 0 0 4.2 16l-1 4 4.1-1a8 8 0 0 0 3.7.9h0a8 8 0 0 0 6.6-12.6zM12 18.4a6.5 6.5 0 0 1-3.3-.9l-.2-.1-2.4.6.6-2.3-.2-.2A6.5 6.5 0 1 1 18.5 12 6.5 6.5 0 0 1 12 18.4zm3.6-4.9c-.2-.1-1.2-.6-1.3-.7s-.3-.1-.4.1-.5.7-.6.8-.2.1-.4 0a5.3 5.3 0 0 1-1.6-1 6 6 0 0 1-1.1-1.4c-.1-.2 0-.3.1-.4l.3-.3.1-.3v-.3c0-.1-.4-1.1-.6-1.5s-.3-.3-.4-.3h-.4a.8.8 0 0 0-.5.3 2.4 2.4 0 0 0-.7 1.8 4.2 4.2 0 0 0 .9 2.2 9.6 9.6 0 0 0 3.7 3.3c.5.2.9.3 1.2.4a2.9 2.9 0 0 0 1.3.1 2.2 2.2 0 0 0 1.4-1 1.8 1.8 0 0 0 .1-1c-.1-.1-.2-.1-.4-.2z" />
+        </svg>
+    </a>
+
+    <!-- MODAL DE PRODUTO — abre ao clicar em "Ver Detalhes" num card do
+         catálogo. O JS (abrirModalProduto em js/app.js) preenche a imagem,
+         o nome e o link de WhatsApp de acordo com o card clicado. -->
+    <div class="produto-modal" id="produto-modal" aria-hidden="true">
+        <div class="produto-modal-fundo" data-fechar-modal></div>
+        <div class="produto-modal-caixa">
+            <button type="button" class="produto-modal-fechar" data-fechar-modal aria-label="Fechar">×</button>
+            <div class="produto-modal-imagem">
+                <img id="modal-produto-img" src="" alt="">
+            </div>
+            <div class="produto-modal-info">
+                <span class="eyebrow">Use Glow</span>
+                <h3 id="modal-produto-nome"></h3>
+                <p class="product-price">Consulte o valor</p>
+                <p class="produto-modal-texto">Fale com a gente pelo WhatsApp pra saber tamanhos, cores disponíveis e
+                    outras informações dessa peça.</p>
+                <a href="#" id="modal-produto-whats" target="_blank" class="btn-cta">Consultar no WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS (biblioteca do carrossel do hero) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Todo o JS próprio do site, comentado por seção -->
+    <script src="js/app.js" defer></script>
+
+</body>
+
+</html>

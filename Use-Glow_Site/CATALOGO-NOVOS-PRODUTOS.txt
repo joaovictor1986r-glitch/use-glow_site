@@ -1,0 +1,3 @@
+Quatro novos produtos foram adicionados ao catálogo.
+As fotos foram separadas da imagem enviada, uma por produto, e mantidas em alta qualidade.
+Os caminhos dos produtos existentes não foram alterados.

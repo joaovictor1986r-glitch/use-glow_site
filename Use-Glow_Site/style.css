@@ -1,0 +1,2214 @@
+/* =====================================================================
+   USE GLOW — REDESIGN: tipografia delicada, header transparente, hero
+   sem clip-path. Paleta original preservada (rosa + dourado + preto),
+   refinada com mais respiro, traços finos e detalhes de joalheria.
+   ===================================================================== */
+:root {
+    --off-white: #FDF8F6;
+    --branco: #FFFFFF;
+    --rosa-claro: #F8E1E4;
+    --rosa-vibrante: #D97A8C;
+    --rosa-profundo: #8C4A5B;
+    --dourado: #C9A227;
+    --dourado-claro: #F3E3C1;
+    --preto: #211A1A;
+    --texto-suave: #6b5f5c;
+    --sombra-suave: 0 8px 28px rgba(33, 26, 26, 0.07);
+    --sombra-delicada: 0 2px 14px rgba(33, 26, 26, 0.06);
+    --gradiente-luxo: linear-gradient(120deg, #7A5230 0%, #D9B263 20%, #F7E7C1 42%, #C9A227 58%, #EFD9A0 76%, #8C6A2F 100%);
+    --gradiente-luxo-sutil: linear-gradient(120deg, var(--dourado) 0%, var(--dourado-claro) 50%, var(--dourado) 100%);
+    --linha-fina: 1px solid rgba(201, 162, 39, 0.35);
+
+    /* Cormorant Garamond: serifa fina e elegante, para títulos.
+       Italiana: caixa-alta luxuosa, para pequenos rótulos/eyebrows.
+       Poppins leve: para texto corrido, sem peso demais. */
+    --fonte-titulo: 'Cormorant Garamond', 'Times New Roman', serif;
+    --fonte-logo: 'Cormorant Garamond', serif;
+    --fonte-display: 'Italiana', serif;
+    --fonte-texto: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* evita que o cabeçalho fixo (faixa de avisos + navegação) tampe o topo
+   das seções ao navegar pelas âncoras do menu */
+#catalogo,
+#sobre,
+#localizacao,
+#rodape {
+    scroll-margin-top: 112px;
+}
+
+@media (max-width: 640px) {
+
+    #catalogo,
+    #sobre,
+    #localizacao,
+    #rodape {
+        scroll-margin-top: 92px;
+    }
+}
+
+body {
+    font-family: var(--fonte-texto);
+    font-weight: 300;
+    color: var(--preto);
+    background-color: var(--off-white);
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.titulo-secao {
+    font-family: var(--fonte-titulo);
+    font-weight: 500;
+    font-size: clamp(30px, 4vw, 44px);
+    letter-spacing: 0.01em;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.titulo-secao.titulo-esquerda {
+    text-align: left;
+}
+
+.titulo-secao .destaque {
+    font-style: italic;
+    color: var(--rosa-vibrante);
+}
+
+.subtitulo-secao {
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 48px auto;
+    color: var(--texto-suave);
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+}
+
+/* pequeno traço dourado, assinatura visual do redesign, sob os títulos */
+.enfeite-divisor {
+    display: block;
+    width: 54px;
+    height: 1px;
+    background: var(--dourado);
+    margin: 0 auto 20px auto;
+}
+
+.titulo-esquerda+.enfeite-divisor,
+.titulo-esquerda~.enfeite-divisor {
+    margin-left: 0;
+}
+
+/* Botão principal: contorno fino dourado, caixa-alta espaçada — discreto
+   e refinado, preenche suavemente no hover em vez de já nascer "cheio". */
+.btn-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--preto);
+    font-family: var(--fonte-texto);
+    font-weight: 500;
+    font-size: 12.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 15px 34px;
+    border: 1px solid var(--dourado);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+    isolation: isolate;
+    background-size: 220% auto;
+    background-position: 0% 50%;
+    transition: background 0.5s ease, background-position 1.6s ease, color 0.35s ease,
+        border-color 0.35s ease, transform 0.25s ease, box-shadow 0.4s ease;
+}
+
+/* filete de luz que varre o botão no hover — o "brilho" luxuoso */
+.btn-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    left: -60%;
+    width: 40%;
+    background: linear-gradient(115deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.65) 50%,
+            transparent 100%);
+    transform: skewX(-18deg);
+    transition: left 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+    pointer-events: none;
+}
+
+.btn-cta:hover::before {
+    left: 130%;
+}
+
+.btn-cta>* {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-cta:hover {
+    background: var(--gradiente-luxo);
+    background-size: 220% auto;
+    background-position: 100% 50%;
+    border-color: transparent;
+    color: var(--branco);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(140, 106, 47, 0.35), 0 2px 10px rgba(33, 26, 26, 0.12);
+}
+
+/* 1. FAIXA SUPERIOR */
+.faixa-avisos {
+    background: rgba(255, 255, 255, 0.08);
+    /* Ou rgba(0, 0, 0, 0.2) para sites escuros */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Suporte para Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    /* Linha sutil para dar acabamento */
+    color: var(--branco);
+    letter-spacing: 0.08em;
+}
+
+.faixa-avisos .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 7px 24px;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.faixa-avisos .separador {
+    opacity: 0.5;
+    font-size: 9px;
+}
+
+/* 2. CABEÇALHO — fixo e transparente sobre o hero, ganha corpo ao rolar */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+}
+
+.site-header .faixa-avisos {
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
+    overflow: hidden;
+}
+
+.site-header.scrolled .faixa-avisos {
+    max-height: 0;
+    opacity: 0;
+}
+
+header .topo {
+    background: transparent;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.site-header.scrolled .topo {
+    background-color: rgba(253, 248, 246, 0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--sombra-suave);
+}
+
+header .topo .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px;
+    transition: padding 0.4s ease;
+}
+
+.site-header.scrolled .topo .container {
+    padding: 14px 24px;
+}
+
+.logo {
+    font-family: var(--fonte-logo);
+    font-size: 28px;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+    color: var(--branco);
+    transition: color 0.4s ease;
+}
+
+.site-header.scrolled .logo {
+    color: var(--preto);
+}
+
+.logo .glow {
+    background: var(--gradiente-luxo);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.logo .tagline {
+    font-family: var(--fonte-display);
+    font-style: normal;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--dourado-claro);
+    transition: color 0.4s ease;
+}
+
+.site-header.scrolled .logo .tagline {
+    color: var(--rosa-vibrante);
+}
+
+nav.menu-principal ul {
+    display: flex;
+    gap: 36px;
+    font-family: var(--fonte-texto);
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+nav.menu-principal a {
+    color: var(--branco);
+    transition: color 0.4s ease;
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.site-header.scrolled nav.menu-principal a {
+    color: var(--preto);
+}
+
+nav.menu-principal a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    height: 1px;
+    background: var(--dourado);
+    transition: right 0.3s ease;
+}
+
+nav.menu-principal a:hover {
+    color: var(--dourado);
+}
+
+.site-header.scrolled nav.menu-principal a:hover {
+    color: var(--rosa-vibrante);
+}
+
+nav.menu-principal a:hover::after {
+    right: 0;
+}
+
+.header-direita {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-whatsapp-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gradiente-luxo);
+    color: var(--branco);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.btn-whatsapp-header svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--branco);
+}
+
+.btn-hamburguer {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.btn-hamburguer span {
+    width: 24px;
+    height: 1px;
+    background-color: var(--branco);
+    display: block;
+    transition: background-color 0.4s ease;
+}
+
+.site-header.scrolled .btn-hamburguer span {
+    background-color: var(--preto);
+}
+
+/* 3. HERO — foto + véu em degradê + painel de texto. Sem clip-path:
+   o alinhamento (esquerda / direita / centro) varia por slide para dar
+   ritmo visual, e a legibilidade vem só do gradiente + tipografia. */
+.hero-section {
+    background-color: var(--preto);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-swiper {
+    width: 100%;
+}
+
+.hero-swiper.swiper,
+.hero-swiper .swiper-wrapper,
+.hero-swiper .swiper-slide {
+    height: auto;
+}
+
+.slide-item-v2 {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1672 / 941;
+    overflow: hidden;
+}
+
+.slide-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    z-index: 0;
+}
+
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.align-left .slide-overlay {
+    background: linear-gradient(100deg,
+            rgba(24, 17, 18, 0.88) 0%,
+            rgba(24, 17, 18, 0.6) 26%,
+            rgba(24, 17, 18, 0.22) 46%,
+            transparent 64%);
+}
+
+.align-right .slide-overlay {
+    background: linear-gradient(260deg,
+            rgba(24, 17, 18, 0.88) 0%,
+            rgba(24, 17, 18, 0.6) 26%,
+            rgba(24, 17, 18, 0.22) 46%,
+            transparent 64%);
+}
+
+.align-center .slide-overlay {
+    background: linear-gradient(to top,
+            rgba(24, 17, 18, 0.92) 0%,
+            rgba(24, 17, 18, 0.62) 30%,
+            rgba(24, 17, 18, 0.18) 56%,
+            transparent 75%);
+}
+
+.slide-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 0 8%;
+    color: var(--branco);
+}
+
+.align-left .slide-content {
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+}
+
+.align-right .slide-content {
+    align-items: flex-end;
+    justify-content: center;
+    text-align: right;
+}
+
+.align-center .slide-content {
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    padding-bottom: 7%;
+}
+
+.slide-content .slide-eyebrow,
+.slide-content .slide-title,
+.slide-content .slide-divider,
+.slide-content p,
+.slide-content .btn-cta {
+    max-width: 460px;
+}
+
+.slide-eyebrow {
+    font-family: var(--fonte-display);
+    font-size: 12px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--dourado-claro);
+    margin-bottom: 18px;
+}
+
+.slide-title {
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(48px, 6.4vw, 92px);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+}
+
+.slide-title .accent {
+    background: linear-gradient(100deg, var(--dourado-claro) 0%, var(--dourado) 55%, var(--dourado-claro) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.slide-divider {
+    display: block;
+    width: 56px;
+    height: 1px;
+    background: var(--dourado);
+    margin: 22px 0;
+}
+
+.align-right .slide-divider {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.align-center .slide-divider {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slide-content p {
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    opacity: 0.92;
+    margin-bottom: 30px;
+}
+
+.slide-content .btn-cta {
+    color: var(--branco);
+    border-color: var(--dourado-claro);
+}
+
+.slide-content .btn-cta:hover {
+    color: var(--branco);
+}
+
+/* --- Paletas por slide: cada Hero puxa acento/eyebrow da cor dominante
+   da própria foto, mantendo a base preto+branco do overlay igual. --- */
+.tema-preto-dourado .slide-eyebrow {
+    color: var(--dourado-claro);
+}
+
+.tema-preto-dourado .slide-divider {
+    background: var(--dourado);
+}
+
+.tema-champagne-perola .slide-eyebrow {
+    color: #F0E6D2;
+}
+
+.tema-champagne-perola .slide-divider {
+    background: #D8C79A;
+}
+
+.tema-rosa-dourado .slide-eyebrow {
+    color: var(--rosa-claro);
+}
+
+.tema-rosa-dourado .slide-divider {
+    background: var(--rosa-vibrante);
+}
+
+.tema-bege-dourado .slide-eyebrow {
+    color: var(--dourado-claro);
+}
+
+.tema-bege-dourado .slide-divider {
+    background: var(--dourado);
+}
+
+/* =====================================================================
+   SLIDE EXCLUSIVO COM SOBREPOSIÇÃO — wordmark gigante "Use Glow" atrás/
+   na frente da modelo recortada, inspirado num editorial de campanha,
+   com a tipografia e paleta da própria marca (terracota + dourado).
+
+   ---------------------------------------------------------------------
+   COMO FUNCIONA O EMPILHAMENTO (z-index), do fundo pra frente:
+     0  .overlap-bg-img      → foto de fundo (parede/ambiente)
+     1  .slide-overlap::before → véu de contraste
+     2  .overlap-wordmark    → texto gigante "USE GLOW"
+     3  .overlap-modelo      → PNG da modelo (cobre o texto onde há corpo)
+     4  .slide-overlap::after  → sombra de chão
+     5  .overlap-content      → texto de apoio (sempre por cima de tudo)
+
+   IMPORTANTE PARA O PNG DA MODELO FUNCIONAR:
+     1. O arquivo precisa ter fundo 100% transparente (sem halo/matte).
+     2. A tela (canvas) do PNG precisa estar CORTADA RENTE ao corpo dela
+        — sem sobra de espaço transparente em cima/embaixo/nas laterais.
+        Se sobrar espaço vazio no arquivo, o navegador posiciona a
+        "caixa" da imagem, não a silhueta, e o corpo nunca cai onde
+        você quer em cima do texto.
+     3. Depois de cortar rente, ajuste --modelo-right / --modelo-height
+        abaixo até o corpo cobrir as letras do jeito que a referência
+        mostra (ombro/braço sobre o "L", quadril sobre o "O").
+   ===================================================================== */
+:root {
+    --terracota: #A9673F;
+    --terracota-escuro: #5C3A28;
+    --areia: #EFE3D3;
+
+    /* Variáveis de ajuste fino da modelo — mexa só aqui pra reposicionar */
+    --modelo-right: 15%;
+    --modelo-height: 100%;
+    --modelo-nudge-x: 0%;
+    --modelo-nudge-y: 0%;
+}
+
+.slide-overlap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1672 / 941;
+    overflow: hidden;
+    background-color: var(--areia);
+}
+
+.overlap-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    z-index: 0;
+}
+
+.slide-overlap::before {
+    /* véu leve pra garantir contraste do texto sobre a parede clara */
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(100deg,
+            rgba(239, 227, 211, 0.55) 0%,
+            rgba(239, 227, 211, 0.18) 38%,
+            transparent 60%);
+    pointer-events: none;
+}
+
+/* sombra suave no rodapé — ancora a composição, igual referência */
+.slide-overlap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: linear-gradient(to top,
+            rgba(60, 40, 22, 0.22) 0%,
+            rgba(60, 40, 22, 0.06) 12%,
+            transparent 26%);
+    pointer-events: none;
+}
+
+/* pequeno rótulo "Nova Coleção" acima do wordmark, ecoando o editorial
+   de referência: caixa-alta, bem espaçado, discreto. */
+.overlap-top-eyebrow {
+    position: absolute;
+    left: 6%;
+    top: 15%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--fonte-display);
+    font-size: 12px;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--terracota);
+}
+
+.overlap-top-eyebrow::before {
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: var(--dourado);
+}
+
+.overlap-wordmark {
+    position: absolute;
+    left: 6%;
+    top: 21%;
+    z-index: 2;
+    /* fica ATRÁS da modelo (z-index 3) — onde o corpo dela passar
+       por cima, o PNG cobre naturalmente as letras */
+    display: flex;
+    flex-direction: column;
+    line-height: 0.82;
+    font-family: var(--fonte-display);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    pointer-events: none;
+    user-select: none;
+}
+
+.overlap-wordmark .word-solid {
+    font-size: clamp(64px, 11.5vw, 176px);
+    color: var(--terracota-escuro);
+}
+
+.overlap-wordmark .word-outline {
+    font-size: clamp(88px, 19.5vw, 296px);
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--dourado);
+    -webkit-text-fill-color: transparent;
+    margin-top: -0.05em;
+    margin-left: 0.36em;
+}
+
+.overlap-modelo {
+    position: absolute;
+    z-index: 3;
+    right: 12%; 
+    bottom: 0;
+
+    height: var(--modelo-height);
+    width: 580px;
+    object-fit: cover;
+    object-position: top center;
+
+    transform: translate(calc(var(--modelo-nudge-x) + 40px), var(--modelo-nudge-y));
+    filter: drop-shadow(0 18px 30px rgba(60, 40, 25, 0.25));
+}
+
+.overlap-content {
+    position: absolute;
+    z-index: 5;
+    left: 6%;
+    bottom: 9%;
+    max-width: 380px;
+    color: var(--terracota-escuro);
+}
+
+.tema-terracota .overlap-content .slide-eyebrow {
+    color: var(--terracota);
+}
+
+.overlap-tagline {
+    display: block;
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(26px, 3vw, 36px);
+    color: var(--terracota-escuro);
+    margin-top: 6px;
+}
+
+.overlap-content .slide-divider {
+    background: var(--gradiente-luxo-sutil);
+}
+
+.overlap-content p {
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--texto-suave);
+    margin-bottom: 26px;
+    max-width: 340px;
+}
+
+.overlap-content .btn-cta {
+    color: var(--terracota-escuro);
+    border-color: var(--terracota);
+}
+
+.overlap-content .btn-cta:hover {
+    color: var(--branco);
+    background: var(--terracota);
+}
+
+@media (max-width: 900px) {
+    :root {
+        --modelo-right: 4%;
+        --modelo-height: 98%;
+    }
+
+    .overlap-wordmark {
+        top: 22%;
+        left: 5%;
+    }
+
+    .overlap-top-eyebrow {
+        top: 16%;
+        left: 5%;
+    }
+}
+
+@media (max-width: 640px) {
+    .slide-overlap {
+        aspect-ratio: auto;
+        min-height: 640px;
+        padding-top: 128px;
+        /* empurra o conteúdo pra baixo do cabeçalho fixo + faixa de avisos */
+    }
+
+    .overlap-bg-img {
+        object-position: 78% center;
+    }
+
+    .overlap-top-eyebrow {
+        top: 138px;
+        left: 6%;
+        font-size: 10px;
+        letter-spacing: 0.34em;
+        gap: 8px;
+    }
+
+    .overlap-top-eyebrow::before {
+        width: 20px;
+    }
+
+    .overlap-wordmark {
+        top: 168px;
+        left: 6%;
+    }
+
+    .overlap-wordmark .word-solid {
+        font-size: clamp(40px, 15vw, 58px);
+    }
+
+    .overlap-wordmark .word-outline {
+        font-size: clamp(54px, 20vw, 80px);
+        margin-left: 0.3em;
+    }
+
+    :root {
+        --modelo-right: 4%;
+        --modelo-height: 46%;
+        /* menor que no desktop de propósito: em telas estreitas, uma
+           modelo grande some com o espaço horizontal e invade o texto.
+           Se no seu PNG real ainda sobrar pouco espaço, reduza mais
+           (ex.: 40%) até o corpo dela não encostar no bloco de texto. */
+    }
+
+
+    .overlap-content {
+        left: 6%;
+        right: auto;
+        bottom: 6%;
+        max-width: 46%;
+        /* reduzido de 60% pra 46% pra garantir espaço livre entre o
+           texto e a modelo — confira lado a lado com --modelo-height
+           acima; a soma dos dois não deve passar de ~90% da largura */
+        padding: 14px 16px;
+        background: rgba(239, 227, 211, 0.82);
+        backdrop-filter: blur(2px);
+        /* rede de segurança: mesmo que a modelo encoste no texto em
+           algum aparelho, esse fundo garante leitura */
+    }
+
+    .overlap-content p {
+        max-width: none;
+        font-size: 12.5px;
+        margin-bottom: 14px;
+    }
+
+    .overlap-tagline {
+        font-size: 19px;
+    }
+}
+
+/* Controles do Swiper */
+.hero-swiper .swiper-button-next,
+.hero-swiper .swiper-button-prev {
+    color: var(--dourado-claro);
+    transform: scale(0.7);
+}
+
+.hero-swiper .swiper-pagination-bullet {
+    background: var(--branco);
+    opacity: 0.5;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+    background: var(--dourado);
+    opacity: 1;
+}
+
+/* 4. DIFERENCIAIS */
+.diferenciais {
+    background-color: var(--branco);
+    padding: 64px 0;
+    border-bottom: var(--linha-fina);
+}
+
+.diferenciais .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+}
+
+.item-diferencial .icone {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 18px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--rosa-claro);
+    background-color: var(--off-white);
+}
+
+.item-diferencial .icone svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--rosa-vibrante);
+    fill: none;
+}
+
+.item-diferencial:nth-child(3) .icone {
+    border-color: var(--dourado-claro);
+}
+
+.item-diferencial:nth-child(3) .icone svg {
+    stroke: var(--dourado);
+}
+
+.item-diferencial h3 {
+    font-family: var(--fonte-texto);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* 5. CATÁLOGO COMPLETO */
+.catalog-section {
+    background-color: var(--off-white);
+    padding: 96px 0;
+}
+
+.catalog-header {
+    margin-bottom: 8px;
+}
+
+/* --- Cabeçalho editorial da curadoria: layout tipo masthead de revista,
+   com nota lateral, índice numérico e uma linha fina separando do
+   filtro. --- */
+.catalog-header-editorial {
+    padding-top: 8px;
+}
+
+.catalog-kicker {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+}
+
+.catalog-kicker-line {
+    width: 42px;
+    height: 5px;
+    background: var(--gradiente-luxo);
+    flex-shrink: 0;
+}
+
+.catalog-kicker span:last-child {
+    font-family: var(--fonte-display);
+    font-size: 20px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--rosa-profundo);
+}
+
+.catalog-heading-wrap {
+    display: grid;
+    grid-template-columns: 108px 1fr 96px;
+    align-items: end;
+    gap: 32px;
+    padding-bottom: 36px;
+    margin-bottom: 8px;
+    border-bottom: var(--linha-fina);
+}
+
+.catalog-side-note {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fonte-texto);
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1.7;
+    color: var(--texto-suave);
+    text-transform: uppercase;
+    border-left: 2px solid var(--dourado);
+    padding-left: 14px;
+    padding-bottom: 4px;
+}
+
+.catalog-heading-wrap .titulo-secao {
+    text-align: left;
+    margin-bottom: 14px;
+}
+
+.catalog-heading-wrap .subtitulo-secao {
+    text-align: left;
+    margin: 0;
+    max-width: 460px;
+}
+
+.catalog-index {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    text-align: right;
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--dourado);
+    padding-bottom: 4px;
+}
+
+.catalog-index span:nth-child(2) {
+    color: var(--texto-suave);
+    font-style: normal;
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+.catalog-filter-row {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    row-gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    margin-bottom: 44px;
+}
+
+.filter-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    white-space: nowrap;
+    position: relative;
+    padding-right: 20px;
+}
+
+.filter-label::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 1px;
+    height: 16px;
+    background: rgba(140, 74, 91, 0.25);
+    transform: translateY(-50%);
+}
+
+@media (max-width: 900px) {
+    .catalog-heading-wrap {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .catalog-side-note {
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-left: none;
+        border-top: 2px solid var(--dourado);
+        padding-left: 0;
+        padding-top: 10px;
+        gap: 6px;
+        line-height: 1.5;
+    }
+
+    .catalog-side-note span:not(:last-child)::after {
+        content: '·';
+        margin-left: 6px;
+        opacity: 0.5;
+    }
+
+    .catalog-index {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 6px;
+        text-align: left;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .catalog-heading-wrap .titulo-secao,
+    .catalog-heading-wrap .subtitulo-secao {
+        text-align: center;
+    }
+
+    .catalog-kicker {
+        justify-content: center;
+    }
+
+    .catalog-side-note,
+    .catalog-index {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .filter-label {
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .filter-label::after {
+        display: none;
+    }
+
+    .catalog-filter-row {
+        justify-content: center;
+    }
+}
+
+.catalog-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid rgba(140, 74, 91, 0.25);
+    color: var(--preto);
+    padding: 9px 22px;
+    border-radius: 999px;
+    font-family: var(--fonte-texto);
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: var(--preto);
+    color: var(--branco);
+    border-color: var(--preto);
+}
+
+/* Mosaico estilo Pinterest via CSS columns (multi-coluna), não grid:
+   com "columns" cada card empilha na coluna mais curta e a altura
+   variável das fotos (ver .product-card:nth-child abaixo) cria o
+   efeito de tijolos. Funciona em todos os navegadores, sem JS. */
+.products-grid {
+    columns: 3;
+    column-gap: 28px;
+}
+
+.product-card {
+    background-color: var(--branco);
+    border: 1px solid rgba(33, 26, 26, 0.06);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    break-inside: avoid;
+    margin-bottom: 28px;
+}
+
+/* Proporções alternadas por posição — é isso que gera o mosaico.
+   Ajuste os seletores/valores à vontade para mudar o ritmo visual;
+   o padrão evita repetir a mesma altura duas vezes seguidas. */
+.product-card:nth-child(3n+2) .product-image {
+    aspect-ratio: 4 / 5;
+}
+
+.product-card:nth-child(5n+3) .product-image {
+    aspect-ratio: 1 / 1;
+}
+
+.product-card:nth-child(7n+4) .product-image {
+    aspect-ratio: 3 / 5;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-suave);
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background-color: var(--rosa-claro);
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.04);
+}
+
+.foto-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+    color: var(--rosa-vibrante);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.quick-view-btn {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+    background-color: rgba(253, 248, 246, 0.96);
+    color: var(--preto);
+    text-align: center;
+    padding: 11px;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.product-card:hover .quick-view-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-info {
+    padding: 22px 18px;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.product-price {
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rosa-vibrante);
+    font-weight: 500;
+}
+
+.destaques-cta {
+    text-align: center;
+}
+
+.destaques-cta p {
+    font-size: 15px;
+    color: var(--texto-suave);
+    margin-bottom: 20px;
+}
+
+/* 6. SOBRE */
+.sobre-loja {
+    background-color: var(--preto);
+    color: var(--off-white);
+    padding: 96px 0;
+}
+
+.sobre-loja .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.sobre-foto {
+    border: 1px solid rgba(243, 227, 193, 0.25);
+    padding: 14px;
+    aspect-ratio: 4/3;
+}
+
+.sobre-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sobre-texto span.slide-eyebrow,
+.sobre-texto .eyebrow {
+    font-family: var(--fonte-display);
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.sobre-texto h2 {
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(28px, 3.5vw, 38px);
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.sobre-texto p {
+    color: rgba(253, 248, 246, 0.75);
+    font-weight: 300;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+/* 7. LOCALIZAÇÃO */
+.localizacao {
+    background-color: var(--rosa-claro);
+    padding: 96px 0;
+}
+
+.localizacao .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.localizacao-info .endereco {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 28px;
+    font-weight: 400;
+    font-size: 14.5px;
+}
+
+.localizacao-info .endereco svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--rosa-vibrante);
+    fill: none;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.mapa-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: var(--branco);
+    border: 1px dashed rgba(140, 74, 91, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--rosa-profundo);
+    font-weight: 400;
+    font-size: 13px;
+    padding: 20px;
+}
+
+/* 8. RODAPÉ */
+footer.rodape {
+    background-color: var(--off-white);
+    border-top: var(--linha-fina);
+    padding: 64px 0 32px 0;
+}
+
+.rodape-topo {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 36px;
+}
+
+.rodape-marca .logo {
+    font-size: 30px;
+    color: var(--preto);
+    margin-bottom: 14px;
+}
+
+.rodape-marca .logo .tagline {
+    color: var(--rosa-vibrante);
+}
+
+.rodape-marca p {
+    color: var(--texto-suave);
+    font-size: 14px;
+    max-width: 280px;
+}
+
+.rodape-coluna h4 {
+    font-family: var(--fonte-display);
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dourado);
+}
+
+.rodape-coluna p {
+    font-size: 14px;
+    color: var(--texto-suave);
+    margin-bottom: 8px;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.redes-sociais a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--dourado);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease;
+}
+
+.redes-sociais a:hover {
+    background: var(--gradiente-luxo);
+    border-color: transparent;
+}
+
+.redes-sociais a:hover svg {
+    fill: var(--branco);
+}
+
+.redes-sociais svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--dourado);
+    transition: fill 0.25s ease;
+}
+
+.rodape-linha {
+    border: none;
+    border-top: 1px solid rgba(32, 27, 26, 0.1);
+    margin-bottom: 20px;
+}
+
+.rodape-baixo {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--texto-suave);
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .slide-title {
+        font-size: clamp(32px, 6vw, 48px);
+    }
+
+    .slide-content p {
+        display: none;
+    }
+
+    .products-grid {
+        columns: 2;
+    }
+
+    .diferenciais .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sobre-loja .container,
+    .localizacao .container {
+        grid-template-columns: 1fr;
+    }
+
+    .rodape-topo {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    .faixa-avisos .container {
+        gap: 8px;
+        font-size: 9.5px;
+    }
+
+    nav.menu-principal {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--branco);
+        box-shadow: var(--sombra-suave);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        z-index: 10;
+    }
+
+    nav.menu-principal.aberto {
+        max-height: 320px;
+    }
+
+    nav.menu-principal ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 24px 16px 24px;
+    }
+
+    nav.menu-principal li {
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(32, 27, 26, 0.06);
+    }
+
+    nav.menu-principal a {
+        color: var(--preto);
+    }
+
+    .btn-hamburguer {
+        display: flex;
+    }
+
+    .btn-hamburguer span {
+        background-color: var(--branco);
+    }
+
+    .site-header.scrolled .btn-hamburguer span {
+        background-color: var(--preto);
+    }
+
+    .btn-whatsapp-header span {
+        display: none;
+    }
+
+    .btn-whatsapp-header {
+        padding: 10px;
+    }
+
+    .slide-item-v2 {
+        aspect-ratio: auto;
+        min-height: 460px;
+    }
+
+    .slide-content {
+        padding: 0 24px;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        text-align: center !important;
+        padding-bottom: 56px;
+    }
+
+    .align-left .slide-overlay,
+    .align-right .slide-overlay {
+        background: linear-gradient(to top,
+                rgba(24, 17, 18, 0.92) 0%,
+                rgba(24, 17, 18, 0.55) 34%,
+                rgba(24, 17, 18, 0.15) 58%,
+                transparent 78%);
+    }
+
+    .slide-content p {
+        display: block;
+        max-width: 320px;
+        margin: 20px auto 26px auto;
+    }
+
+    .slide-divider {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .products-grid {
+        columns: 1;
+    }
+
+    .diferenciais .container {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+
+    .quick-view-btn {
+        opacity: 1;
+        transform: none;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 10px;
+    }
+}
+
+/* =====================================================================
+   EXTENSÕES DO REDESIGN — animações, modal, catálogo funcional,
+   números, depoimentos, Instagram, newsletter e botão flutuante.
+   ===================================================================== */
+
+/* rótulo pequeno em caixa-alta reutilizável (usado no modal, Sobre etc.) */
+.eyebrow {
+    display: block;
+    font-family: var(--fonte-display);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-bottom: 14px;
+}
+
+/* -----------------------------------------------------------------
+   1. SCROLL REVEAL — estado inicial (oculto) e estado visível.
+   O JS só alterna a classe "is-visible"; toda a animação é feita
+   pela transição do CSS.
+----------------------------------------------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* -----------------------------------------------------------------
+   2. KEN BURNS SUAVE NAS FOTOS DO HERO
+   Zoom bem lento e contínuo, só pra tirar a sensação de imagem
+   "parada" — segue mesmo com o Swiper trocando de slide.
+----------------------------------------------------------------- */
+.slide-bg-img {
+    animation: kenburns 14s ease-in-out infinite alternate;
+}
+
+@keyframes kenburns {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.09);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slide-bg-img {
+        animation: none;
+    }
+}
+
+/* -----------------------------------------------------------------
+   3. SELOS NOS CARDS DE PRODUTO (Novidade / Últimas Peças)
+----------------------------------------------------------------- */
+.product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    font-family: var(--fonte-texto);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+    color: var(--branco);
+}
+
+.badge-novidade {
+    background: var(--gradiente-luxo);
+}
+
+.badge-ultimas {
+    background: var(--preto);
+}
+
+/* -----------------------------------------------------------------
+   4. CURSOR PERSONALIZADO NAS FOTOS DO CATÁLOGO (desktop)
+   Escondido por padrão; ganha opacidade/escala ao passar o mouse
+   sobre uma .product-image (classe "ativo" via JS).
+----------------------------------------------------------------- */
+.cursor-produto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    width: 64px;
+    height: 64px;
+    margin-left: -32px;
+    margin-top: -32px;
+    border-radius: 50%;
+    background: rgba(33, 26, 26, 0.85);
+    color: var(--dourado-claro);
+    font-family: var(--fonte-display);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.cursor-produto.ativo {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media (max-width: 900px) {
+    .cursor-produto {
+        display: none;
+    }
+}
+
+/* -----------------------------------------------------------------
+   5. SKELETON DE CARREGAMENTO NAS FOTOS DE PRODUTO
+   Enquanto a foto não tem a classe "carregada", mostra um shimmer;
+   a foto real fica com opacity 0 até carregar, evitando o "pulo"
+   de layout e deixando o carregamento mais elegante.
+----------------------------------------------------------------- */
+.product-image {
+    background: linear-gradient(100deg, var(--rosa-claro) 25%, var(--off-white) 50%, var(--rosa-claro) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+}
+
+.product-image img {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.product-image img.carregada {
+    opacity: 1;
+}
+
+.product-image:has(img.carregada) {
+    animation: none;
+    background: var(--rosa-claro);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* -----------------------------------------------------------------
+   6. PAGINAÇÃO DO CATÁLOGO ("Ver Mais Peças")
+----------------------------------------------------------------- */
+.oculto-paginacao {
+    display: none;
+}
+
+.catalog-ver-mais {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.destaques-cta {
+    text-align: center;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(140, 74, 91, 0.15);
+}
+
+/* -----------------------------------------------------------------
+   7. SEÇÃO "NÚMEROS" (contadores)
+----------------------------------------------------------------- */
+.numeros {
+    background-color: var(--preto);
+    padding: 64px 0;
+}
+
+.numeros-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+}
+
+.numero-item p {
+    margin-top: 10px;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(253, 248, 246, 0.65);
+}
+
+.numero-valor,
+.numero-sufixo {
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(34px, 4vw, 48px);
+    color: var(--dourado-claro);
+}
+
+/* -----------------------------------------------------------------
+   8. DEPOIMENTOS
+----------------------------------------------------------------- */
+.depoimentos {
+    background-color: var(--off-white);
+    padding: 96px 0;
+}
+
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 16px;
+}
+
+.depoimento-card {
+    background-color: var(--branco);
+    border: 1px solid rgba(33, 26, 26, 0.06);
+    padding: 32px 28px;
+}
+
+.depoimento-estrelas {
+    color: var(--dourado);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.depoimento-card p {
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.depoimento-nome {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+}
+
+/* -----------------------------------------------------------------
+   9. GRADE DO INSTAGRAM
+----------------------------------------------------------------- */
+.instagram-secao {
+    background-color: var(--branco);
+    padding: 96px 0;
+}
+
+.instagram-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+    margin-top: 16px;
+}
+
+.instagram-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    display: block;
+}
+
+.instagram-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.4s ease;
+}
+
+.instagram-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(33, 26, 26, 0);
+    transition: background 0.3s ease;
+}
+
+.instagram-item:hover::after {
+    background: rgba(33, 26, 26, 0.25);
+}
+
+.instagram-item:hover img {
+    transform: scale(1.08);
+}
+
+/* -----------------------------------------------------------------
+   10. MAPA EMBUTIDO (substitui o antigo placeholder)
+----------------------------------------------------------------- */
+.mapa-embed {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border: 1px solid rgba(140, 74, 91, 0.2);
+    overflow: hidden;
+}
+
+/* -----------------------------------------------------------------
+   11. NEWSLETTER / CAPTAÇÃO DE LEAD (via WhatsApp)
+----------------------------------------------------------------- */
+.newsletter {
+    background: var(--gradiente-luxo);
+    padding: 56px 0;
+}
+
+.newsletter-caixa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.newsletter-texto .titulo-secao {
+    color: var(--branco);
+    margin-bottom: 6px;
+}
+
+.newsletter-texto .titulo-secao .destaque {
+    color: var(--preto);
+}
+
+.newsletter-texto .subtitulo-secao {
+    color: rgba(253, 248, 246, 0.9);
+    text-align: left;
+    margin: 0;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.newsletter-form input {
+    background: rgba(253, 248, 246, 0.95);
+    border: none;
+    padding: 15px 20px;
+    font-family: var(--fonte-texto);
+    font-size: 14px;
+    min-width: 220px;
+    color: var(--preto);
+}
+
+.newsletter-form input::placeholder {
+    color: var(--texto-suave);
+}
+
+.newsletter-form .btn-cta {
+    background: var(--preto);
+    border-color: var(--preto);
+    color: var(--branco);
+    white-space: nowrap;
+}
+
+.newsletter-form .btn-cta:hover {
+    background: var(--branco);
+    color: var(--preto);
+    border-color: var(--branco);
+}
+
+/* -----------------------------------------------------------------
+   12. BOTÃO FLUTUANTE DE WHATSAPP
+----------------------------------------------------------------- */
+.whatsapp-flutuante {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 300;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-flutuante svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--branco);
+    position: relative;
+    z-index: 1;
+}
+
+.whatsapp-flutuante-anel {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #25D366;
+    animation: pulso-whatsapp 2.2s ease-out infinite;
+}
+
+@keyframes pulso-whatsapp {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1.7);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-flutuante-anel {
+        animation: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .whatsapp-flutuante {
+        right: 16px;
+        bottom: 16px;
+        width: 52px;
+        height: 52px;
+    }
+}
+
+/* -----------------------------------------------------------------
+   13. MODAL DE PRODUTO
+----------------------------------------------------------------- */
+.produto-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.produto-modal.aberto {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.produto-modal-fundo {
+    position: absolute;
+    inset: 0;
+    background: rgba(33, 26, 26, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+.produto-modal-caixa {
+    position: relative;
+    z-index: 1;
+    background: var(--branco);
+    max-width: 780px;
+    width: 100%;
+    max-height: 88vh;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    transform: translateY(16px) scale(0.98);
+    transition: transform 0.3s ease;
+}
+
+.produto-modal.aberto .produto-modal-caixa {
+    transform: translateY(0) scale(1);
+}
+
+.produto-modal-imagem {
+    background-color: var(--rosa-claro);
+    aspect-ratio: 3/4;
+}
+
+.produto-modal-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.produto-modal-info {
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.produto-modal-info h3 {
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 500;
+    margin: 4px 0 10px 0;
+}
+
+.produto-modal-texto {
+    color: var(--texto-suave);
+    font-size: 14px;
+    margin: 16px 0 26px 0;
+}
+
+.produto-modal-fechar {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(253, 248, 246, 0.9);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--preto);
+}
+
+@media (max-width: 640px) {
+    .produto-modal-caixa {
+        grid-template-columns: 1fr;
+    }
+
+    .produto-modal-imagem {
+        aspect-ratio: 4/3;
+    }
+
+    .produto-modal-info {
+        padding: 28px 24px;
+    }
+}
+
+/* -----------------------------------------------------------------
+   14. AJUSTES RESPONSIVOS DAS SEÇÕES NOVAS
+----------------------------------------------------------------- */
+@media (max-width: 900px) {
+    .numeros-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 20px;
+    }
+
+    .depoimentos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .instagram-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .newsletter-caixa {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .newsletter-texto .subtitulo-secao {
+        text-align: left;
+    }
+
+    .newsletter-form {
+        width: 100%;
+    }
+
+    .newsletter-form input {
+        flex: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .instagram-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3px;
+    }
+}
